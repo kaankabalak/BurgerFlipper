@@ -193,6 +193,7 @@
 				TargetAttributes = {
 					8C1524161F10A10500819736 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = G6RP4M9WGT;
 						ProvisioningStyle = Automatic;
 					};
 					8C15242A1F10A10500819736 = {
@@ -414,6 +415,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = G6RP4M9WGT;
 				INFOPLIST_FILE = BurgerFlipper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.codingdojo.BurgerFlipper;
@@ -426,6 +428,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = G6RP4M9WGT;
 				INFOPLIST_FILE = BurgerFlipper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.codingdojo.BurgerFlipper;
@@ -507,6 +510,7 @@
 				8C1524411F10A10500819736 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8C1524421F10A10500819736 /* Build configuration list for PBXNativeTarget "BurgerFlipperTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +519,7 @@
 				8C1524441F10A10500819736 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8C1524451F10A10500819736 /* Build configuration list for PBXNativeTarget "BurgerFlipperUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +528,7 @@
 				8C1524471F10A10500819736 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
