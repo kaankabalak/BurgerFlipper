@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet var line: UIView!
+    @IBOutlet weak var line: UIView!
     
     @IBOutlet weak var circle: UIView!
     var semiCircleLayer   = CAShapeLayer()
@@ -42,6 +42,8 @@ class ViewController: UIViewController {
         layer.strokeColor = UIColor.blue.cgColor
         layer.lineWidth = 8
         line.layer.addSublayer(layer)
+        
+        line.layer.zPosition = 1;
     }
 
     override func didReceiveMemoryWarning() {
