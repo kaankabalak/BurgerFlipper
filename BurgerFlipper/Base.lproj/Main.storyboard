@@ -29,13 +29,13 @@
                                 <rect key="frame" x="47" y="193" width="280" height="280"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XUx-i4-9oi">
-                                        <rect key="frame" x="130" y="130" width="130" height="66"/>
+                                        <rect key="frame" x="140" y="140" width="130" height="66"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WNj-Ce-LwK">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="280"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="280" id="a0d-1l-HbU"/>
                                             <constraint firstAttribute="width" constant="280" id="txp-Ph-6ww"/>

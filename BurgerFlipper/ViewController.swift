@@ -21,42 +21,41 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.drawCircle()
         self.drawPatty()
         
         // Do any additional setup after loading the view, typically from a nib.
         
         // gyroscope
         
-//        // interval units are in seconds
-//        motionManager.gyroUpdateInterval = (0.1)
-//        motionManager.deviceMotionUpdateInterval = (1.0/60.0)
-//        // each time gyro updates, either return data or error in callback
-//        motionManager.startGyroUpdates(to: OperationQueue.current!) {(data, error) in
-//            if let myData = data {
-//                if myData.rotationRate.x > 6 {
-//                    print("----------Flick!", myData.rotationRate.x, "-----------")
-//                }
-//            }
-//        }
-//        
-//        // each time orientation changes, either return data or error in callback
-//        motionManager.startDeviceMotionUpdates(to: OperationQueue.current!) {(data, error) in
-//            if let myData = data {
-//                let angleInRadians: CGFloat = -1 * CGFloat(myData.attitude.yaw + Double.pi/2)
-//                self.drawCircle()
-//                
-//                if self.degrees(Double(angleInRadians)) > 0 {
-//                    self.drawLine(0)
-//                }
-//                else if self.degrees(Double(angleInRadians)) < -180 {
-//                    self.drawLine(Double.pi)
-//                }
-//                else {
-//                    self.drawLine(Double(angleInRadians))
-//                }
-//            }
-//        }
+        // interval units are in seconds
+        motionManager.gyroUpdateInterval = (0.1)
+        motionManager.deviceMotionUpdateInterval = (1.0/60.0)
+        // each time gyro updates, either return data or error in callback
+        motionManager.startGyroUpdates(to: OperationQueue.current!) {(data, error) in
+            if let myData = data {
+                if myData.rotationRate.x > 3 {
+                    print("----------Flick!", myData.rotationRate.x, "-----------")
+                }
+            }
+        }
+        
+        // each time orientation changes, either return data or error in callback
+        motionManager.startDeviceMotionUpdates(to: OperationQueue.current!) {(data, error) in
+            if let myData = data {
+                let angleInRadians: CGFloat = -1 * CGFloat(myData.attitude.yaw + Double.pi/2)
+                self.drawCircle()
+                
+                if self.degrees(Double(angleInRadians)) > 0 {
+                    self.drawLine(0)
+                }
+                else if self.degrees(Double(angleInRadians)) < -180 {
+                    self.drawLine(Double.pi)
+                }
+                else {
+                    self.drawLine(Double(angleInRadians))
+                }
+            }
+        }
     }
     func drawCircle() {
         let center = CGPoint (x: self.circle.frame.size.width / 2, y: self.circle.frame.size.height / 2)
@@ -85,10 +84,11 @@ class ViewController: UIViewController {
         self.pattyLayer.path = circlePath.cgPath
         self.pattyLayer.fillColor = UIColor.brown.cgColor
         self.circleCopy.layer.addSublayer(self.pattyLayer)
+        self.circleCopy.layer.zPosition = 2
     }
     
     func drawLine(_ angleInRadians: Double) {
-        let length: CGFloat = 130
+        let length: CGFloat = 150
         let path = UIBezierPath()
         let layer = CAShapeLayer()
         
