@@ -26,29 +26,40 @@
                         </userGuides>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="370-IZ-cuW">
-                                <rect key="frame" x="57.5" y="203" width="260" height="260"/>
+                                <rect key="frame" x="47" y="193" width="280" height="280"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XUx-i4-9oi">
                                         <rect key="frame" x="130" y="130" width="130" height="66"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WNj-Ce-LwK">
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="280"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="280" id="a0d-1l-HbU"/>
+                                            <constraint firstAttribute="width" constant="280" id="txp-Ph-6ww"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="260" id="gwH-iL-cBV"/>
-                                    <constraint firstAttribute="height" constant="260" id="wqM-qC-EOb"/>
+                                    <constraint firstAttribute="width" constant="280" id="06y-6g-JsO"/>
+                                    <constraint firstAttribute="height" constant="280" id="EUi-Jr-PMO"/>
+                                    <constraint firstItem="WNj-Ce-LwK" firstAttribute="centerY" secondItem="370-IZ-cuW" secondAttribute="centerY" id="iPp-SS-l7a"/>
+                                    <constraint firstItem="WNj-Ce-LwK" firstAttribute="centerX" secondItem="370-IZ-cuW" secondAttribute="centerX" id="xsq-l0-QPH"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="370-IZ-cuW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0bY-cx-FfD"/>
-                            <constraint firstItem="370-IZ-cuW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="nc0-YL-ONa"/>
+                            <constraint firstItem="370-IZ-cuW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="UnG-OL-1cZ"/>
+                            <constraint firstItem="370-IZ-cuW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kc4-d3-lny"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="circle" destination="370-IZ-cuW" id="y9F-Qp-HJt"/>
+                        <outlet property="circleCopy" destination="WNj-Ce-LwK" id="QvG-VS-26g"/>
                         <outlet property="line" destination="XUx-i4-9oi" id="eef-FN-wD5"/>
                     </connections>
                 </viewController>
