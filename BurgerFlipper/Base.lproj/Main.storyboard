@@ -23,6 +23,13 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="370-IZ-cuW">
                                 <rect key="frame" x="57.5" y="203" width="260" height="260"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XUx-i4-9oi">
+                                        <rect key="frame" x="130" y="136" width="130" height="66"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="260" id="gwH-iL-cBV"/>
@@ -38,11 +45,12 @@
                     </view>
                     <connections>
                         <outlet property="circle" destination="370-IZ-cuW" id="y9F-Qp-HJt"/>
+                        <outlet property="line" destination="XUx-i4-9oi" id="eef-FN-wD5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="48.125937031484263" y="37.600000000000001"/>
+            <point key="canvasLocation" x="47.200000000000003" y="37.331334332833585"/>
         </scene>
     </scenes>
 </document>

@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var line: UIView!
     
     @IBOutlet weak var circle: UIView!
     var semiCircleLayer   = CAShapeLayer()
@@ -25,13 +26,13 @@ class ViewController: UIViewController {
         semiCircleLayer.lineWidth = 8
         circle.layer.addSublayer(semiCircleLayer)
         
-        let angleInRadians: CGFloat = CGFloat(2*Double.pi/3)
+        let angleInRadians: CGFloat = CGFloat(-1*Double.pi/6)
         let length: CGFloat = 130
         let path = UIBezierPath()
         path.move(to: CGPoint(x: 0, y: 0))
-        path.addLine(to: CGPoint(x: 0, y: 1))
+        path.addLine(to: CGPoint(x: 1, y: 0))
         path.close()
-//        path.apply(.init(rotationAngle: angleInRadians))
+        path.apply(.init(rotationAngle: angleInRadians))
         path.apply(.init(scaleX: length, y: length))
         
         
@@ -40,7 +41,7 @@ class ViewController: UIViewController {
         layer.fillColor = UIColor.blue.cgColor
         layer.strokeColor = UIColor.blue.cgColor
         layer.lineWidth = 8
-        circle.layer.addSublayer(layer)
+        line.layer.addSublayer(layer)
     }
 
     override func didReceiveMemoryWarning() {
