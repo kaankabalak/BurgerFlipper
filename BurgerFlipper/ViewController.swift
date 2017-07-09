@@ -10,6 +10,7 @@ import CoreMotion
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var gameTitle: UILabel!
     @IBOutlet weak var playAgainButton: UIButton!
     @IBOutlet weak var line: UIView!
     @IBOutlet weak var circle: UIView!
@@ -28,7 +29,10 @@ class ViewController: UIViewController {
     var seconds = 1000
     var timeDisplay : Timer?
     
+    var isGameStarted : Bool = false
+    
     @IBAction func playAgainPressed(_ sender: UIButton) {
+        isGameStarted = true
         self.seconds = 1000
         self.viewDidLoad()
         timer.angle = 180
@@ -60,63 +64,72 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         playAgainButton.layer.cornerRadius = 10
-        playAgainButton.isHidden = true
-        self.runTimer()
-        self.timer.layer.zPosition = 1
-        scoreLabel.text = String(score)
-        super.viewDidLoad()
-        self.drawPatty()
-        var angle = CGFloat(Double.pi/2)
-        
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        // gyroscope
-        
-        // interval units are in seconds
-        motionManager.gyroUpdateInterval = (0.05)
-        motionManager.deviceMotionUpdateInterval = (1.0/60.0)
-        // each time gyro updates, either return data or error in callback
-        motionManager.startGyroUpdates(to: OperationQueue.current!) {(data, error) in
-            if let myData = data {
-                if (self.seconds > 0) {
-                    if myData.rotationRate.x > 1.75 {
-                        if(abs(angle-self.pattyAngle) < 0.15){
-                            print("SUCCESS--------", myData.rotationRate.x, "-----------")
-                            print("Angle is: \(angle)")
-                            self.drawPatty()
-                            self.score += 1
-                            self.scoreLabel.text = String(self.score)
+        if (isGameStarted == true){
+            playAgainButton.setTitle("Play again", for: .normal)
+            playAgainButton.isHidden = true
+            self.runTimer()
+            self.timer.layer.zPosition = 1
+            scoreLabel.text = String(score)
+            super.viewDidLoad()
+            self.drawPatty()
+            var angle = CGFloat(Double.pi/2)
+            
+            // Do any additional setup after loading the view, typically from a nib.
+            
+            // gyroscope
+            
+            // interval units are in seconds
+            motionManager.gyroUpdateInterval = (0.05)
+            motionManager.deviceMotionUpdateInterval = (1.0/60.0)
+            // each time gyro updates, either return data or error in callback
+            motionManager.startGyroUpdates(to: OperationQueue.current!) {(data, error) in
+                if let myData = data {
+                    if (self.seconds > 0) {
+                        if myData.rotationRate.x > 1.75 {
+                            if(abs(angle-self.pattyAngle) < 0.15){
+                                print("SUCCESS--------", myData.rotationRate.x, "-----------")
+                                print("Angle is: \(angle)")
+                                self.drawPatty()
+                                self.score += 1
+                                self.scoreLabel.text = String(self.score)
+                            }
+                            else{
+                                print("FAILURE--------", myData.rotationRate.x, "-----------")
+                                print("Your angle is: \(angle), Patty angle is: \(self.pattyAngle)")
+                            }
                         }
-                        else{
-                            print("FAILURE--------", myData.rotationRate.x, "-----------")
-                            print("Your angle is: \(angle), Patty angle is: \(self.pattyAngle)")
+                    }
+                }
+            }
+            
+            // each time orientation changes, either return data or error in callback
+            motionManager.startDeviceMotionUpdates(to: OperationQueue.current!) {(data, error) in
+                if let myData = data {
+                    let angleInRadians: CGFloat = -2 * CGFloat(myData.attitude.yaw + Double.pi/4)
+                    angle = -1 * angleInRadians
+                    if (self.seconds > 0) {
+                        self.drawCircle()
+                        
+                        if self.degrees(Double(angleInRadians)) > 0 {
+                            self.drawLine(0)
+                            angle = 0
+                        }
+                        else if self.degrees(Double(angleInRadians)) < -180 {
+                            self.drawLine(Double.pi)
+                            angle = CGFloat(Double.pi)
+                        }
+                        else {
+                            self.drawLine(Double(angleInRadians))
                         }
                     }
                 }
             }
         }
-        
-        // each time orientation changes, either return data or error in callback
-        motionManager.startDeviceMotionUpdates(to: OperationQueue.current!) {(data, error) in
-            if let myData = data {
-                let angleInRadians: CGFloat = -2 * CGFloat(myData.attitude.yaw + Double.pi/4)
-                angle = -1 * angleInRadians
-                if (self.seconds > 0) {
-                    self.drawCircle()
-                    
-                    if self.degrees(Double(angleInRadians)) > 0 {
-                        self.drawLine(0)
-                        angle = 0
-                    }
-                    else if self.degrees(Double(angleInRadians)) < -180 {
-                        self.drawLine(Double.pi)
-                        angle = CGFloat(Double.pi)
-                    }
-                    else {
-                        self.drawLine(Double(angleInRadians))
-                    }
-                }
-            }
+        else {
+            drawCircle()
+            drawLine(-1*Double.pi/2)
+            playAgainButton.setTitle("Start game", for: .normal)
+            playAgainButton.isHidden = false
         }
     }
     func drawCircle() {

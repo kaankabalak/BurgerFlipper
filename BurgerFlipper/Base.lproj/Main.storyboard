@@ -69,7 +69,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WNj-Ce-LwK">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="280"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ttv-XR-K3w">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ttv-XR-K3w">
                                                 <rect key="frame" x="82" y="170" width="116" height="53"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="43"/>
@@ -107,10 +107,18 @@
                                     <action selector="playAgainPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1kj-3s-Zfj"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Burger Flipper" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WgM-mc-SLM">
+                                <rect key="frame" x="57.5" y="92.5" width="259" height="50.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="fXC-9S-Eni" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="32V-mW-QOD"/>
+                            <constraint firstItem="WgM-mc-SLM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7Od-pp-Ni7"/>
+                            <constraint firstItem="370-IZ-cuW" firstAttribute="top" secondItem="WgM-mc-SLM" secondAttribute="bottom" constant="50" id="ONU-ce-Rnv"/>
                             <constraint firstItem="370-IZ-cuW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="UnG-OL-1cZ"/>
                             <constraint firstItem="370-IZ-cuW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kc4-d3-lny"/>
                             <constraint firstItem="fXC-9S-Eni" firstAttribute="top" secondItem="370-IZ-cuW" secondAttribute="bottom" constant="50" id="yAm-5F-rhf"/>
@@ -119,6 +127,7 @@
                     <connections>
                         <outlet property="circle" destination="370-IZ-cuW" id="y9F-Qp-HJt"/>
                         <outlet property="circleCopy" destination="WNj-Ce-LwK" id="QvG-VS-26g"/>
+                        <outlet property="gameTitle" destination="WgM-mc-SLM" id="Pxo-tJ-CBq"/>
                         <outlet property="line" destination="XUx-i4-9oi" id="eef-FN-wD5"/>
                         <outlet property="playAgainButton" destination="fXC-9S-Eni" id="QQk-En-UpB"/>
                         <outlet property="scoreLabel" destination="Ttv-XR-K3w" id="X9A-IN-tp7"/>
