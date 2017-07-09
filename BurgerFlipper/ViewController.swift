@@ -26,14 +26,14 @@ class ViewController: UIViewController {
     
     var pattyAngle = CGFloat(Double.pi/2)
     
-    var seconds = 1000
+    var seconds = 300
     var timeDisplay : Timer?
     
     var isGameStarted : Bool = false
     
     @IBAction func playAgainPressed(_ sender: UIButton) {
         isGameStarted = true
-        self.seconds = 1000
+        self.seconds = 300
         self.viewDidLoad()
         timer.angle = 180
         score = 0
@@ -41,14 +41,14 @@ class ViewController: UIViewController {
     }
     
     func runTimer() {
-        timeDisplay = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: (#selector(ViewController.updateTimer)), userInfo: nil, repeats: true)
+        timeDisplay = Timer.scheduledTimer(timeInterval: 1.0/30, target: self, selector: (#selector(ViewController.updateTimer)), userInfo: nil, repeats: true)
     }
     
     func updateTimer() {
         if seconds > 1 {
             print("\(seconds) seconds left")
             seconds -= 1
-            timer.angle -= 180/1000
+            timer.angle -= 180/300
         }
         else {
             timer.angle = 0
