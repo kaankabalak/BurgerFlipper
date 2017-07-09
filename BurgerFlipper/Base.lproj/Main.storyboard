@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.19" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.16"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -50,17 +50,26 @@
                                     <constraint firstItem="WNj-Ce-LwK" firstAttribute="centerX" secondItem="370-IZ-cuW" secondAttribute="centerX" id="xsq-l0-QPH"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QVZ-L6-JBw">
+                                <rect key="frame" x="149.5" y="28" width="76.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="370-IZ-cuW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="UnG-OL-1cZ"/>
+                            <constraint firstItem="QVZ-L6-JBw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jfp-LU-IlB"/>
                             <constraint firstItem="370-IZ-cuW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kc4-d3-lny"/>
+                            <constraint firstItem="QVZ-L6-JBw" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="kdS-Z4-d17"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="circle" destination="370-IZ-cuW" id="y9F-Qp-HJt"/>
                         <outlet property="circleCopy" destination="WNj-Ce-LwK" id="QvG-VS-26g"/>
                         <outlet property="line" destination="XUx-i4-9oi" id="eef-FN-wD5"/>
+                        <outlet property="timeLabel" destination="QVZ-L6-JBw" id="yik-A8-pyy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

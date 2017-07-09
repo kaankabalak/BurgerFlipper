@@ -13,26 +13,41 @@ class ViewController: UIViewController {
     @IBOutlet weak var line: UIView!
     @IBOutlet weak var circle: UIView!
     @IBOutlet weak var circleCopy: UIView!
-    
+    @IBOutlet weak var timeLabel: UILabel!
+  
     
     var semiCircleLayer   = CAShapeLayer()
     var pattyLayer   = CAShapeLayer()
     var motionManager = CMMotionManager()
     
     var pattyAngle = CGFloat(Double.pi/2)
+    var seconds = 10000
+    var timer = Timer()
+  
+  
+    func runTimer() {
+      timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: (#selector(ViewController.updateTimer)), userInfo: nil, repeats: true)
+    }
+  
+    func updateTimer() {
+      if seconds > 0 {
+          seconds = seconds - 1
+      }
+      else { seconds = 0 }
+      timeLabel.text = "\(seconds)"
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.runTimer()
+        timeLabel?.text = String(seconds)
         self.drawPatty()
         var angle = CGFloat(Double.pi/2)
-        
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        // gyroscope
-        
-        // interval units are in seconds
+      
         motionManager.gyroUpdateInterval = (0.05)
         motionManager.deviceMotionUpdateInterval = (1.0/60.0)
+      
         // each time gyro updates, either return data or error in callback
         motionManager.startGyroUpdates(to: OperationQueue.current!) {(data, error) in
             if let myData = data {
@@ -52,6 +67,8 @@ class ViewController: UIViewController {
         
         // each time orientation changes, either return data or error in callback
         motionManager.startDeviceMotionUpdates(to: OperationQueue.current!) {(data, error) in
+//            self.runTimer()
+//            print(self.motionManager.deviceMotionUpdateInterval)
             if let myData = data {
                 let angleInRadians: CGFloat = -2 * CGFloat(myData.attitude.yaw + Double.pi/4)
                 angle = -1 * angleInRadians
