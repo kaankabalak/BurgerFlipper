@@ -14,6 +14,8 @@
 		8C1524251F10A10500819736 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C1524231F10A10500819736 /* LaunchScreen.storyboard */; };
 		8C1524301F10A10500819736 /* BurgerFlipperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C15242F1F10A10500819736 /* BurgerFlipperTests.swift */; };
 		8C15243B1F10A10500819736 /* BurgerFlipperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C15243A1F10A10500819736 /* BurgerFlipperUITests.swift */; };
+		8C959A9B1F12E85F001D97A6 /* flip.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C959A9A1F12E85F001D97A6 /* flip.wav */; };
+		8C959A9D1F12E868001D97A6 /* bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8C959A9C1F12E868001D97A6 /* bgm.mp3 */; };
 		8C9DE5B31F11CFE400E9E670 /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9DE5B21F11CFE400E9E670 /* KDCircularProgress.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +50,8 @@
 		8C1524361F10A10500819736 /* BurgerFlipperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BurgerFlipperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C15243A1F10A10500819736 /* BurgerFlipperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BurgerFlipperUITests.swift; sourceTree = "<group>"; };
 		8C15243C1F10A10500819736 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C959A9A1F12E85F001D97A6 /* flip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = flip.wav; path = "../BurgerFlipper-sounds/BurgerFlipper/Music/flip.wav"; sourceTree = "<group>"; };
+		8C959A9C1F12E868001D97A6 /* bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = bgm.mp3; path = "../BurgerFlipper-sounds/bgm.mp3"; sourceTree = "<group>"; };
 		8C9DE5B21F11CFE400E9E670 /* KDCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,6 +83,8 @@
 		8C15240E1F10A10500819736 = {
 			isa = PBXGroup;
 			children = (
+				8C959A9C1F12E868001D97A6 /* bgm.mp3 */,
+				8C959A9A1F12E85F001D97A6 /* flip.wav */,
 				8C1524191F10A10500819736 /* BurgerFlipper */,
 				8C15242E1F10A10500819736 /* BurgerFlipperTests */,
 				8C1524391F10A10500819736 /* BurgerFlipperUITests */,
@@ -237,6 +243,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C1524251F10A10500819736 /* LaunchScreen.storyboard in Resources */,
+				8C959A9B1F12E85F001D97A6 /* flip.wav in Resources */,
+				8C959A9D1F12E868001D97A6 /* bgm.mp3 in Resources */,
 				8C1524221F10A10500819736 /* Assets.xcassets in Resources */,
 				8C1524201F10A10500819736 /* Main.storyboard in Resources */,
 			);
