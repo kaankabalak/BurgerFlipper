@@ -14,7 +14,7 @@
 		8C1524251F10A10500819736 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C1524231F10A10500819736 /* LaunchScreen.storyboard */; };
 		8C1524301F10A10500819736 /* BurgerFlipperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C15242F1F10A10500819736 /* BurgerFlipperTests.swift */; };
 		8C15243B1F10A10500819736 /* BurgerFlipperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C15243A1F10A10500819736 /* BurgerFlipperUITests.swift */; };
-		8C9DE5B11F11C1DE00E9E670 /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9DE5B01F11C1DE00E9E670 /* KDCircularProgress.swift */; };
+		8C9DE5B31F11CFE400E9E670 /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9DE5B21F11CFE400E9E670 /* KDCircularProgress.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +48,7 @@
 		8C1524361F10A10500819736 /* BurgerFlipperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BurgerFlipperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C15243A1F10A10500819736 /* BurgerFlipperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BurgerFlipperUITests.swift; sourceTree = "<group>"; };
 		8C15243C1F10A10500819736 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8C9DE5B01F11C1DE00E9E670 /* KDCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KDCircularProgress.swift; path = "../../../../Downloads/KDCircularProgress-master/KDCircularProgress/KDCircularProgress.swift"; sourceTree = "<group>"; };
+		8C9DE5B21F11CFE400E9E670 /* KDCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,11 +79,11 @@
 		8C15240E1F10A10500819736 = {
 			isa = PBXGroup;
 			children = (
-				8C9DE5B01F11C1DE00E9E670 /* KDCircularProgress.swift */,
 				8C1524191F10A10500819736 /* BurgerFlipper */,
 				8C15242E1F10A10500819736 /* BurgerFlipperTests */,
 				8C1524391F10A10500819736 /* BurgerFlipperUITests */,
 				8C1524181F10A10500819736 /* Products */,
+				8C9DE5B21F11CFE400E9E670 /* KDCircularProgress.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -263,7 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C9DE5B11F11C1DE00E9E670 /* KDCircularProgress.swift in Sources */,
+				8C9DE5B31F11CFE400E9E670 /* KDCircularProgress.swift in Sources */,
 				8C15241D1F10A10500819736 /* ViewController.swift in Sources */,
 				8C15241B1F10A10500819736 /* AppDelegate.swift in Sources */,
 			);
