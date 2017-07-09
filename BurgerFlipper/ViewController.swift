@@ -10,6 +10,7 @@ import CoreMotion
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var playAgainButton: UIButton!
     @IBOutlet weak var line: UIView!
     @IBOutlet weak var circle: UIView!
     @IBOutlet weak var circleCopy: UIView!
@@ -25,8 +26,15 @@ class ViewController: UIViewController {
     var pattyAngle = CGFloat(Double.pi/2)
     
     var seconds = 1000
-    var timeDisplay = Timer()
+    var timeDisplay : Timer?
     
+    @IBAction func playAgainPressed(_ sender: UIButton) {
+        self.seconds = 1000
+        self.viewDidLoad()
+        timer.angle = 180
+        score = 0
+        scoreLabel.text = String(score)
+    }
     
     func runTimer() {
         timeDisplay = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: (#selector(ViewController.updateTimer)), userInfo: nil, repeats: true)
@@ -34,6 +42,7 @@ class ViewController: UIViewController {
     
     func updateTimer() {
         if seconds > 1 {
+            print("\(seconds) seconds left")
             seconds -= 1
             timer.angle -= 180/1000
         }
@@ -41,12 +50,17 @@ class ViewController: UIViewController {
             timer.angle = 0
             seconds = 0
             self.line.layer.sublayers = nil
+            playAgainButton.isHidden = false
+            timeDisplay?.invalidate()
+            timeDisplay = nil
         }
         
     }
 
     
     override func viewDidLoad() {
+        playAgainButton.layer.cornerRadius = 10
+        playAgainButton.isHidden = true
         self.runTimer()
         self.timer.layer.zPosition = 1
         scoreLabel.text = String(score)

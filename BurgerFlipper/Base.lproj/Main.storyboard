@@ -92,17 +92,35 @@
                                     <constraint firstItem="WNj-Ce-LwK" firstAttribute="centerX" secondItem="370-IZ-cuW" secondAttribute="centerX" id="xsq-l0-QPH"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fXC-9S-Eni">
+                                <rect key="frame" x="97" y="523" width="180" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="SIb-D9-T27"/>
+                                    <constraint firstAttribute="width" constant="180" id="bae-Sf-Dpe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Play again">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="playAgainPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1kj-3s-Zfj"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="fXC-9S-Eni" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="32V-mW-QOD"/>
                             <constraint firstItem="370-IZ-cuW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="UnG-OL-1cZ"/>
                             <constraint firstItem="370-IZ-cuW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kc4-d3-lny"/>
+                            <constraint firstItem="fXC-9S-Eni" firstAttribute="top" secondItem="370-IZ-cuW" secondAttribute="bottom" constant="50" id="yAm-5F-rhf"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="circle" destination="370-IZ-cuW" id="y9F-Qp-HJt"/>
                         <outlet property="circleCopy" destination="WNj-Ce-LwK" id="QvG-VS-26g"/>
                         <outlet property="line" destination="XUx-i4-9oi" id="eef-FN-wD5"/>
+                        <outlet property="playAgainButton" destination="fXC-9S-Eni" id="QQk-En-UpB"/>
                         <outlet property="scoreLabel" destination="Ttv-XR-K3w" id="X9A-IN-tp7"/>
                         <outlet property="timer" destination="OWH-tK-r1d" id="xD7-bu-nqT"/>
                     </connections>
