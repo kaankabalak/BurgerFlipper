@@ -15,6 +15,8 @@
 		8C1524301F10A10500819736 /* BurgerFlipperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C15242F1F10A10500819736 /* BurgerFlipperTests.swift */; };
 		8C15243B1F10A10500819736 /* BurgerFlipperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C15243A1F10A10500819736 /* BurgerFlipperUITests.swift */; };
 		8C9DE5B31F11CFE400E9E670 /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9DE5B21F11CFE400E9E670 /* KDCircularProgress.swift */; };
+		F40C979B1F12DCF2007C20A5 /* bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F40C979A1F12DBE0007C20A5 /* bgm.mp3 */; };
+		F40C979E1F12E649007C20A5 /* flip.wav in Resources */ = {isa = PBXBuildFile; fileRef = F40C979C1F12E61E007C20A5 /* flip.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		8C15243A1F10A10500819736 /* BurgerFlipperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BurgerFlipperUITests.swift; sourceTree = "<group>"; };
 		8C15243C1F10A10500819736 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C9DE5B21F11CFE400E9E670 /* KDCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
+		F40C979A1F12DBE0007C20A5 /* bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm.mp3; sourceTree = SOURCE_ROOT; };
+		F40C979C1F12E61E007C20A5 /* flip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = flip.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,7 @@
 		8C1524191F10A10500819736 /* BurgerFlipper */ = {
 			isa = PBXGroup;
 			children = (
+				F40C97991F12DB67007C20A5 /* Music */,
 				8C15241A1F10A10500819736 /* AppDelegate.swift */,
 				8C15241C1F10A10500819736 /* ViewController.swift */,
 				8C15241E1F10A10500819736 /* Main.storyboard */,
@@ -126,6 +131,15 @@
 				8C15243C1F10A10500819736 /* Info.plist */,
 			);
 			path = BurgerFlipperUITests;
+			sourceTree = "<group>";
+		};
+		F40C97991F12DB67007C20A5 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				F40C979C1F12E61E007C20A5 /* flip.wav */,
+				F40C979A1F12DBE0007C20A5 /* bgm.mp3 */,
+			);
+			path = Music;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,7 +210,7 @@
 				TargetAttributes = {
 					8C1524161F10A10500819736 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = G6RP4M9WGT;
+						DevelopmentTeam = DV65A9T5A4;
 						ProvisioningStyle = Automatic;
 					};
 					8C15242A1F10A10500819736 = {
@@ -236,6 +250,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F40C979E1F12E649007C20A5 /* flip.wav in Resources */,
+				F40C979B1F12DCF2007C20A5 /* bgm.mp3 in Resources */,
 				8C1524251F10A10500819736 /* LaunchScreen.storyboard in Resources */,
 				8C1524221F10A10500819736 /* Assets.xcassets in Resources */,
 				8C1524201F10A10500819736 /* Main.storyboard in Resources */,
@@ -419,10 +435,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = G6RP4M9WGT;
+				DEVELOPMENT_TEAM = DV65A9T5A4;
 				INFOPLIST_FILE = BurgerFlipper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.codingdojo.BurgerFlipper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ericklui.BurgerFlipper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -432,10 +448,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = G6RP4M9WGT;
+				DEVELOPMENT_TEAM = DV65A9T5A4;
 				INFOPLIST_FILE = BurgerFlipper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.codingdojo.BurgerFlipper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ericklui.BurgerFlipper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

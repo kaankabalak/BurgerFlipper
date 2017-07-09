@@ -5,6 +5,7 @@
 //  Created by Kaan Kabalak on 7/7/17.
 //  Copyright © 2017 Kaan Kabalak. All rights reserved.
 //
+import AVFoundation
 import UIKit
 import CoreMotion
 
@@ -26,18 +27,47 @@ class ViewController: UIViewController {
     
     var pattyAngle = CGFloat(Double.pi/2)
     
-    var seconds = 300
+    var seconds = 600
     var timeDisplay : Timer?
     
     var isGameStarted : Bool = false
+    var isMusicPlaying: Bool = false
+    var audioPlayer = AVAudioPlayer()
+    var flip = AVAudioPlayer()
     
     @IBAction func playAgainPressed(_ sender: UIButton) {
         isGameStarted = true
-        self.seconds = 300
+        self.seconds = 600
         self.viewDidLoad()
         timer.angle = 180
         score = 0
         scoreLabel.text = String(score)
+    }
+    
+    func playBGM() {
+        do {
+            if !self.isMusicPlaying {
+                audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "bgm", ofType: "mp3")!))
+                audioPlayer.prepareToPlay()
+                audioPlayer.volume = 0.1
+                audioPlayer.play()
+                self.isMusicPlaying = true
+            }
+        }
+        catch {
+            print(error)
+        }
+    }
+    
+    func playFlipSound() {
+        do {
+            flip = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "flip", ofType: "wav")!))
+            flip.prepareToPlay()
+            flip.play()
+        }
+        catch {
+            print(error)
+        }
     }
     
     func runTimer() {
@@ -48,7 +78,7 @@ class ViewController: UIViewController {
         if seconds > 1 {
             print("\(seconds) seconds left")
             seconds -= 1
-            timer.angle -= 180/300
+            timer.angle -= 180/600
         }
         else {
             timer.angle = 0
@@ -63,6 +93,7 @@ class ViewController: UIViewController {
 
     
     override func viewDidLoad() {
+        playBGM()
         playAgainButton.layer.cornerRadius = 10
         if (isGameStarted == true){
             playAgainButton.setTitle("Play again", for: .normal)
@@ -87,6 +118,7 @@ class ViewController: UIViewController {
                     if (self.seconds > 0) {
                         if myData.rotationRate.x > 1.75 {
                             if(abs(angle-self.pattyAngle) < 0.15){
+                                self.playFlipSound()
                                 print("SUCCESS--------", myData.rotationRate.x, "-----------")
                                 print("Angle is: \(angle)")
                                 self.drawPatty()
