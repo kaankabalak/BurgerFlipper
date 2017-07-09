@@ -40,6 +40,7 @@ class ViewController: UIViewController {
         else {
             timer.angle = 0
             seconds = 0
+            self.line.layer.sublayers = nil
         }
         
     }
@@ -63,17 +64,19 @@ class ViewController: UIViewController {
         // each time gyro updates, either return data or error in callback
         motionManager.startGyroUpdates(to: OperationQueue.current!) {(data, error) in
             if let myData = data {
-                if myData.rotationRate.x > 1.75 {
-                    if(abs(angle-self.pattyAngle) < 0.15){
-                        print("SUCCESS--------", myData.rotationRate.x, "-----------")
-                        print("Angle is: \(angle)")
-                        self.drawPatty()
-                        self.score += 1
-                        self.scoreLabel.text = String(self.score)
-                    }
-                    else{
-                        print("FAILURE--------", myData.rotationRate.x, "-----------")
-                        print("Your angle is: \(angle), Patty angle is: \(self.pattyAngle)")
+                if (self.seconds > 0) {
+                    if myData.rotationRate.x > 1.75 {
+                        if(abs(angle-self.pattyAngle) < 0.15){
+                            print("SUCCESS--------", myData.rotationRate.x, "-----------")
+                            print("Angle is: \(angle)")
+                            self.drawPatty()
+                            self.score += 1
+                            self.scoreLabel.text = String(self.score)
+                        }
+                        else{
+                            print("FAILURE--------", myData.rotationRate.x, "-----------")
+                            print("Your angle is: \(angle), Patty angle is: \(self.pattyAngle)")
+                        }
                     }
                 }
             }
@@ -84,18 +87,20 @@ class ViewController: UIViewController {
             if let myData = data {
                 let angleInRadians: CGFloat = -2 * CGFloat(myData.attitude.yaw + Double.pi/4)
                 angle = -1 * angleInRadians
-                self.drawCircle()
-                
-                if self.degrees(Double(angleInRadians)) > 0 {
-                    self.drawLine(0)
-                    angle = 0
-                }
-                else if self.degrees(Double(angleInRadians)) < -180 {
-                    self.drawLine(Double.pi)
-                    angle = CGFloat(Double.pi)
-                }
-                else {
-                    self.drawLine(Double(angleInRadians))
+                if (self.seconds > 0) {
+                    self.drawCircle()
+                    
+                    if self.degrees(Double(angleInRadians)) > 0 {
+                        self.drawLine(0)
+                        angle = 0
+                    }
+                    else if self.degrees(Double(angleInRadians)) < -180 {
+                        self.drawLine(Double.pi)
+                        angle = CGFloat(Double.pi)
+                    }
+                    else {
+                        self.drawLine(Double(angleInRadians))
+                    }
                 }
             }
         }
