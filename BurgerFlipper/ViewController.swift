@@ -19,6 +19,8 @@ class ViewController: UIViewController {
     var pattyLayer   = CAShapeLayer()
     var motionManager = CMMotionManager()
     
+    var pattyAngle = CGFloat(Double.pi/2)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.drawPatty()
@@ -29,14 +31,21 @@ class ViewController: UIViewController {
         // gyroscope
         
         // interval units are in seconds
-        motionManager.gyroUpdateInterval = (0.1)
+        motionManager.gyroUpdateInterval = (0.05)
         motionManager.deviceMotionUpdateInterval = (1.0/60.0)
         // each time gyro updates, either return data or error in callback
         motionManager.startGyroUpdates(to: OperationQueue.current!) {(data, error) in
             if let myData = data {
-                if myData.rotationRate.x > 3 {
-                    print("----------Flick!", myData.rotationRate.x, "-----------")
-                    print("Angle is: \(angle)")
+                if myData.rotationRate.x > 1.75 {
+                    if(abs(angle-self.pattyAngle) < 0.1){
+                        print("SUCCESS--------", myData.rotationRate.x, "-----------")
+                        print("Angle is: \(angle)")
+                        self.drawPatty()
+                    }
+                    else{
+                        print("FAILURE--------", myData.rotationRate.x, "-----------")
+                        print("Your angle is: \(angle), Patty angle is: \(self.pattyAngle)")
+                    }
                 }
             }
         }
@@ -44,7 +53,7 @@ class ViewController: UIViewController {
         // each time orientation changes, either return data or error in callback
         motionManager.startDeviceMotionUpdates(to: OperationQueue.current!) {(data, error) in
             if let myData = data {
-                let angleInRadians: CGFloat = -1 * CGFloat(myData.attitude.yaw + Double.pi/2)
+                let angleInRadians: CGFloat = -2 * CGFloat(myData.attitude.yaw + Double.pi/4)
                 angle = -1 * angleInRadians
                 self.drawCircle()
                 
@@ -77,12 +86,13 @@ class ViewController: UIViewController {
         let circleRadius = CGFloat(10)
         let random = arc4random_uniform(180)
         let randomRad = Double.pi*Double(random)/180
-        print("Random angle is \(randomRad) radians, which is \(random) degrees")
+        self.pattyAngle = CGFloat(randomRad)
+//        print("Random angle is \(randomRad) radians, which is \(random) degrees")
         let sine = CGFloat(sin(randomRad))
         let cosine = CGFloat(cos(randomRad))
         let xPos = (self.circle.frame.size.width / 2 + (cosine*self.circle.frame.size.width / 2) + (cosine*circleRadius))
         let yPos = (self.circle.frame.size.width / 2 + (sine*self.circle.frame.size.width / 2) + (sine*circleRadius))
-        print("/The patty is going to be printed on x: \(xPos) and y: \(yPos)")
+//        print("/The patty is going to be printed on x: \(xPos) and y: \(yPos)")
         let center = CGPoint (x: xPos, y: 280-yPos)
         
         let circlePath = UIBezierPath(arcCenter: center, radius: circleRadius, startAngle: CGFloat(-1*Double.pi), endAngle: CGFloat(Double.pi), clockwise: true)
