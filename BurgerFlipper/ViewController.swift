@@ -24,8 +24,29 @@ class ViewController: UIViewController {
     
     var pattyAngle = CGFloat(Double.pi/2)
     
-    override func viewDidLoad() {
+    var seconds = 1000
+    var timeDisplay = Timer()
+    
+    
+    func runTimer() {
+        timeDisplay = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: (#selector(ViewController.updateTimer)), userInfo: nil, repeats: true)
+    }
+    
+    func updateTimer() {
+        if seconds > 1 {
+            seconds -= 1
+            timer.angle -= 180/1000
+        }
+        else {
+            timer.angle = 0
+            seconds = 0
+        }
         
+    }
+
+    
+    override func viewDidLoad() {
+        self.runTimer()
         self.timer.layer.zPosition = 1
         scoreLabel.text = String(score)
         super.viewDidLoad()
