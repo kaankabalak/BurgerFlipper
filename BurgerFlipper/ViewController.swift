@@ -137,7 +137,7 @@ class ViewController: UIViewController {
         let circleRadius = self.circle.frame.size.width / 2
         let circlePath = UIBezierPath(arcCenter: center, radius: circleRadius, startAngle: CGFloat(Double.pi), endAngle: CGFloat(0), clockwise: true)
         self.semiCircleLayer.path = circlePath.cgPath
-        self.semiCircleLayer.fillColor = UIColor.red.cgColor
+        self.semiCircleLayer.fillColor = UIColor(red: 0.9098, green: 0.8078, blue: 0.6078, alpha: 1.0).cgColor
         self.semiCircleLayer.lineWidth = 8
         self.circle.layer.addSublayer(self.semiCircleLayer)
         self.line.layer.sublayers = nil
@@ -158,7 +158,7 @@ class ViewController: UIViewController {
         
         let circlePath = UIBezierPath(arcCenter: center, radius: circleRadius, startAngle: CGFloat(-1*Double.pi), endAngle: CGFloat(Double.pi), clockwise: true)
         self.pattyLayer.path = circlePath.cgPath
-        self.pattyLayer.fillColor = UIColor.brown.cgColor
+        self.pattyLayer.fillColor = UIColor(red: 0.3765, green: 0.2627, blue: 0, alpha: 1.0).cgColor
         self.circleCopy.layer.addSublayer(self.pattyLayer)
         self.circleCopy.layer.zPosition = 3
     }
@@ -168,16 +168,25 @@ class ViewController: UIViewController {
         let path = UIBezierPath()
         let layer = CAShapeLayer()
         
+//        path.move(to: CGPoint(x: 0, y: 0))
+//        path.addLine(to: CGPoint(x: 1, y: 0))
+        
         path.move(to: CGPoint(x: 0, y: 0))
-        path.addLine(to: CGPoint(x: 1, y: 0))
+        path.addLine(to: CGPoint(x: 0.9, y: 0))
+        path.addLine(to: CGPoint(x: 0.9, y: 0.05))
+        path.addLine(to: CGPoint(x: 1.1, y: 0.05))
+        path.addLine(to: CGPoint(x: 1.1, y: -0.05))
+        path.addLine(to: CGPoint(x: 0.9, y: -0.05))
+        path.addLine(to: CGPoint(x: 0.9, y: 0))
         path.close()
         path.apply(.init(rotationAngle: CGFloat(angleInRadians)))
         path.apply(.init(scaleX: length, y: length))
         self.line.layer.addSublayer(layer)
         layer.path = path.cgPath
-        layer.fillColor = UIColor.blue.cgColor
-        layer.strokeColor = UIColor.blue.cgColor
+        layer.fillColor = UIColor.gray.cgColor
+        layer.strokeColor = UIColor.gray.cgColor
         layer.lineWidth = 8
+        
         self.line.layer.zPosition = 2
     }
     
