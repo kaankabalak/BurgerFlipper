@@ -22,6 +22,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.drawPatty()
+        var angle = CGFloat(Double.pi/2)
         
         // Do any additional setup after loading the view, typically from a nib.
         
@@ -35,6 +36,7 @@ class ViewController: UIViewController {
             if let myData = data {
                 if myData.rotationRate.x > 3 {
                     print("----------Flick!", myData.rotationRate.x, "-----------")
+                    print("Angle is: \(angle)")
                 }
             }
         }
@@ -43,13 +45,16 @@ class ViewController: UIViewController {
         motionManager.startDeviceMotionUpdates(to: OperationQueue.current!) {(data, error) in
             if let myData = data {
                 let angleInRadians: CGFloat = -1 * CGFloat(myData.attitude.yaw + Double.pi/2)
+                angle = -1 * angleInRadians
                 self.drawCircle()
                 
                 if self.degrees(Double(angleInRadians)) > 0 {
                     self.drawLine(0)
+                    angle = 0
                 }
                 else if self.degrees(Double(angleInRadians)) < -180 {
                     self.drawLine(Double.pi)
+                    angle = CGFloat(Double.pi)
                 }
                 else {
                     self.drawLine(Double(angleInRadians))
