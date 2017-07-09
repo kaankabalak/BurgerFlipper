@@ -13,7 +13,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var line: UIView!
     @IBOutlet weak var circle: UIView!
     @IBOutlet weak var circleCopy: UIView!
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var timer: KDCircularProgress!
     
+    var score = 0
     
     var semiCircleLayer   = CAShapeLayer()
     var pattyLayer   = CAShapeLayer()
@@ -22,6 +25,9 @@ class ViewController: UIViewController {
     var pattyAngle = CGFloat(Double.pi/2)
     
     override func viewDidLoad() {
+        
+        self.timer.layer.zPosition = 1
+        scoreLabel.text = String(score)
         super.viewDidLoad()
         self.drawPatty()
         var angle = CGFloat(Double.pi/2)
@@ -37,10 +43,12 @@ class ViewController: UIViewController {
         motionManager.startGyroUpdates(to: OperationQueue.current!) {(data, error) in
             if let myData = data {
                 if myData.rotationRate.x > 1.75 {
-                    if(abs(angle-self.pattyAngle) < 0.1){
+                    if(abs(angle-self.pattyAngle) < 0.15){
                         print("SUCCESS--------", myData.rotationRate.x, "-----------")
                         print("Angle is: \(angle)")
                         self.drawPatty()
+                        self.score += 1
+                        self.scoreLabel.text = String(self.score)
                     }
                     else{
                         print("FAILURE--------", myData.rotationRate.x, "-----------")
@@ -99,7 +107,7 @@ class ViewController: UIViewController {
         self.pattyLayer.path = circlePath.cgPath
         self.pattyLayer.fillColor = UIColor.brown.cgColor
         self.circleCopy.layer.addSublayer(self.pattyLayer)
-        self.circleCopy.layer.zPosition = 2
+        self.circleCopy.layer.zPosition = 3
     }
     
     func drawLine(_ angleInRadians: Double) {
@@ -117,7 +125,7 @@ class ViewController: UIViewController {
         layer.fillColor = UIColor.blue.cgColor
         layer.strokeColor = UIColor.blue.cgColor
         layer.lineWidth = 8
-        self.line.layer.zPosition = 1
+        self.line.layer.zPosition = 2
     }
     
     func degrees(_ radians: Double) -> Double {
