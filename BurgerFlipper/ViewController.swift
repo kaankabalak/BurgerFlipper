@@ -50,6 +50,7 @@ class ViewController: UIViewController {
                 audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "bgm", ofType: "mp3")!))
                 audioPlayer.prepareToPlay()
                 audioPlayer.volume = 0.1
+                audioPlayer.numberOfLoops = -1
                 audioPlayer.play()
                 self.isMusicPlaying = true
             }
@@ -76,7 +77,6 @@ class ViewController: UIViewController {
     
     func updateTimer() {
         if seconds > 1 {
-            print("\(seconds) seconds left")
             seconds -= 1
             timer.angle -= 180/600
         }
@@ -87,6 +87,7 @@ class ViewController: UIViewController {
             playAgainButton.isHidden = false
             timeDisplay?.invalidate()
             timeDisplay = nil
+            motionManager.stopDeviceMotionUpdates()
         }
         
     }
@@ -104,7 +105,7 @@ class ViewController: UIViewController {
             super.viewDidLoad()
             self.drawPatty()
             var angle = CGFloat(Double.pi/2)
-            
+          
             // Do any additional setup after loading the view, typically from a nib.
             
             // gyroscope
@@ -137,6 +138,7 @@ class ViewController: UIViewController {
             // each time orientation changes, either return data or error in callback
             motionManager.startDeviceMotionUpdates(to: OperationQueue.current!) {(data, error) in
                 if let myData = data {
+                  print(myData.attitude.yaw)
                     let angleInRadians: CGFloat = -2 * CGFloat(myData.attitude.yaw + Double.pi/4)
                     angle = -1 * angleInRadians
                     if (self.seconds > 0) {
